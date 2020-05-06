@@ -1,0 +1,62 @@
+<h2 class="text-center">{{name}} welcom to your profile </h2>
+
+<div class="container text-center mx-auto">
+    <h3>Add your file here</h3>
+    <form action="profile" class="col-md-4 offset-md-4" method="post" enctype="multipart/form-data">
+        <table>
+            <thead>
+                <tr>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                    <td>
+                        <input type="file" class="btn btn-dark" name="pic" id="pic"><br>
+                    </td>
+                    <td>
+                        <input type="submit" class="btn btn-success" value="upload file">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<div class="container text-center">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Download</th>
+                <th scope="col">Delete</th>
+                <th scope="col">share link</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+            <tr>
+                <td>
+                    <p>{{this.showname}}</p>
+                </td>
+                <td>
+                    <form action="/profile/download/{{ this._id}}">
+                        <input type="submit" class="btn btn-success" value="download">
+                    </form>
+                </td>
+                <td>
+                    <form action="/profile/delete/{{ this._id}}" method="post">
+                        <input type="submit" class="btn btn-danger" value="delete">
+                    </form>
+                </td>
+                <td>
+                    <form action="/profile/link/{{ this._id}}">
+                        <input type="submit" class="btn btn-success" value="Go to link">
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

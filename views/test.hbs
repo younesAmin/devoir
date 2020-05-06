@@ -1,0 +1,44 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1 class="container">up/down</h1>
+    <form action="up" method="post" enctype="multipart/form-data">
+        <input type="file" name="pic" id="pic"><br>
+        <input type="submit" value="upload file">
+    </form><br><br><br><br>
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    Images
+                </td>
+                <td>
+                    download
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+            <tr>
+                <td>
+                    <img src="{{ this.url}}" alt="images" style="width: 100px; height: 100px;">
+                </td>
+                <td>
+                    <form action="/users/download/{{ this._id}}">
+                        <input type="submit" value="download">
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+
+</html>
