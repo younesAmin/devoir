@@ -6,7 +6,7 @@ passport.serializeUser((users, done) => {
     return done(null, users.id);
 })
 passport.deserializeUser((id, done) => {
-    User.findById(id, ('userName'), (err, user) => {
+    User.findById(id, { userName: 'userName', storage: 'storage' }, (err, user) => {
         return done(err, user);
     })
 })
@@ -45,6 +45,7 @@ passport.use('local-signup', new localStrategy({
             return done(null, false, req.flash('signupError', "this email already exist"))
         }
         const newUser = new User({
+            storage: 100,
             userName: req.body.username,
             email: email,
             password: new User().hashPassword(password)

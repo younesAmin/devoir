@@ -19,11 +19,11 @@ var profileRouter = require('./routes/profile')
 
 
 
-
+var db = 'mongodb+srv://younes:Df6XDDlgUagphJ7x@devoir-qpwoq.mongodb.net/test?retryWrites=true&w=majority'
 
 var app = express();
 
-mongoose.connect('mongodb+srv://younes:Df6XDDlgUagphJ7x@devoir-qpwoq.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true }, (error) => {
+mongoose.connect('mongodb://localhost/devoir', { useNewUrlParser: true, useUnifiedTopology: true }, (error) => {
   if (error) {
     console.log(error);
   } else

@@ -1,6 +1,12 @@
 <h2 class="text-center">{{name}} welcom to your profile </h2>
 
 <div class="container text-center mx-auto">
+    {{#each  massages}}
+    <div class="alert alert-danger">
+        {{this}}
+    </div>
+    {{/each}}
+    <h4>you still have {{storage}} Mo</h4>
     <h3>Add your file here</h3>
     <form action="profile" class="col-md-4 offset-md-4" method="post" enctype="multipart/form-data">
         <table>
